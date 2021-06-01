@@ -1,5 +1,12 @@
 <h1>{{greeting}}</h1>
-<h2>Users</h2>
-<app-users></app-users>  <!-- сюди викликається компонент app.users.ts-->-->
+<header>
+  <h2><a [routerLink]="['home']">Home</a></h2>
+  <h2><a routerLink="users">Users</a></h2>
+  <h2><a [routerLink]="['posts']">Posts</a></h2>
+</header>
+
+<router-outlet></router-outlet>
+
+
 
 

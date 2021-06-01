@@ -2,10 +2,6 @@
   <div class="post">
     Post ID - {{post.id}}
   </div>
-    <br>
-    Post Title - {{post.title}}
-    <br>
-    Post body - {{post.body}}
-  <h4>Comments</h4>
-  <app-comments [postId]="post.id"></app-comments>
+
+  <button (click)="goToDetails()">post details</button>
 </div>

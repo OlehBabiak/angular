@@ -15,7 +15,7 @@ posts: Post[] = []
   constructor(private postService: PostService) { }
 
   ngOnInit(): void {
-    this.postService.getPostsByUserId(this.userId).subscribe(value => {
+    this.postService.getPosts().subscribe(value => {
 
       this.posts = value
     })

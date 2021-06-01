@@ -1,19 +1,9 @@
 <div>
   <div class="user">
-    User № {{user.id}}.
-    <br>
     Name - {{user.name}}
     <br>
-    User Name - {{user.username}}
-    <br>
-    Email - {{user.email}}
+    <button (click)="goToDetails()">User Datails</button>
   </div>
 
-  <h3>Posts</h3>
- <app-posts [userId]="user.id"></app-posts>
-  <h3>Albums</h3>
-  <app-albums [userId]="user.id"></app-albums>
-  <h3>Todos</h3>
-  <app-todos [userId]="user.id"></app-todos>
 </div>
-<!--тут відображається один юзер-->
+

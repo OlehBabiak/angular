@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Post} from "../../../models/Post";
+import {PostService} from "../../../services/post.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-post',
@@ -9,9 +11,11 @@ import {Post} from "../../../models/Post";
 export class PostComponent implements OnInit {
 @Input()
 post: Post
-  constructor() { }
+  constructor(private postService: PostService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
   }
-
+  goToDetails(): void {
+    this.router.navigate([this.post.id], {relativeTo: this.activatedRoute, state: this.post}) //extras додає початковий сегмент урли на якій ми до цього були
+  }
 }
