@@ -10,7 +10,7 @@ import {PostService} from "../../../services/post.service";
 })
 export class UserComponent implements OnInit {
   @Input()
-  user: User // let user = u
+  user: User // let user = u  from users.comp.html
 
   constructor(private postService: PostService) {
   }

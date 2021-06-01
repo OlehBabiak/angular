@@ -8,7 +8,7 @@ import {Observable} from "rxjs";
 })
 export class UserService {
  private url = 'https://jsonplaceholder.typicode.com/users';
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient) { //dependency injection
     }
   getUsers(): Observable<User[]>{  // Observable наглядає за масивом який приходить
   return   this.httpClient.get<User[]>(this.url)
