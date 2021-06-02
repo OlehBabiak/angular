@@ -9,14 +9,13 @@ import {PostService} from "../../services/post.service";
 })
 export class PostsComponent implements OnInit {
   @Input()
-  userId:number
 posts: Post[] = []
 
   constructor(private postService: PostService) { }
 
   ngOnInit(): void {
     this.postService.getPosts().subscribe(value => {
-
+      console.log(value);
       this.posts = value
     })
   }

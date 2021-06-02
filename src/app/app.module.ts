@@ -13,6 +13,8 @@ import { PostDetailsComponent } from './components/posts/post-details/post-detai
 import {DeactivatorService} from "./services/deactivator.service";
 import { CommentsComponent } from './components/comments/comments.component';
 import {ResolveService} from "./services/resolve.service";
+import {CommentComponent} from "./components/comments/comment/comment.component";
+import { CommentDetailsComponent } from './components/comments/comment-details/comment-details.component';
 
 
 let routes: Routes = [
@@ -25,8 +27,9 @@ let routes: Routes = [
   },
   {path: 'posts', component: PostsComponent, canDeactivate: [DeactivatorService]},
   {path: 'posts/:id', component: PostDetailsComponent, canActivate: [DeactivatorService]},//this component have parent component app
-  {path: 'comments', component: CommentsComponent, resolve: {data: ResolveService}} //при переході на урлу, можем запустити якийсь механізм (запит данних)
+  {path: 'comments', component: CommentsComponent, resolve: {data: ResolveService}}, //при переході на урлу, можем запустити якийсь механізм (запит данних)
   //prefetch
+  {path: 'comments/:id', component: CommentComponent}
 ]
 
 @NgModule({
@@ -39,7 +42,9 @@ let routes: Routes = [
     HomeComponent,
     UserDetailsComponent,
     PostDetailsComponent,
-    CommentsComponent
+    CommentsComponent,
+    CommentComponent,
+    CommentDetailsComponent
   ],
   imports: [
     BrowserModule,

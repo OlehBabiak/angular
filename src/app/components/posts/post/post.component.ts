@@ -15,7 +15,5 @@ post: Post
 
   ngOnInit(): void {
   }
-  goToDetails(): void {
-    this.router.navigate([this.post.id], {relativeTo: this.activatedRoute, state: this.post}) //extras додає початковий сегмент урли на якій ми до цього були
-  }
+
 }

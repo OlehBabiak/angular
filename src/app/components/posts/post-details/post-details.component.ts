@@ -13,7 +13,6 @@ export class PostDetailsComponent implements OnInit {
 post: Post
   constructor(private  postService: PostService, private activateRoute: ActivatedRoute) {
     this.activateRoute.params.subscribe(params=>{
-      console.log(params.id);
     this.postService.getPost(params.id).subscribe(value => {
       this.post = value
     })
