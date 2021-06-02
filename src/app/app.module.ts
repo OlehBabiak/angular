@@ -10,22 +10,23 @@ import {RouterModule, Routes} from "@angular/router";
 import { HomeComponent } from './components/home/home.component';
 import { UserDetailsComponent } from './components/users/user-details/user-details.component';
 import { PostDetailsComponent } from './components/posts/post-details/post-details.component';
+import {DeactivatorService} from "./services/deactivator.service";
+import { CommentsComponent } from './components/comments/comments.component';
+import {ResolveService} from "./services/resolve.service";
 
 
 let routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'users', component: UsersComponent,
     children: [
-      {path: ':id', component: UserDetailsComponent},
+      {path: ':id', component: UserDetailsComponent},  //this component renders in parent component
 
     ]
   },
-  {path: 'posts', component: PostsComponent,
-    children: [
-      {path: ':id', component: PostDetailsComponent},
-
-    ]
-  },
+  {path: 'posts', component: PostsComponent, canDeactivate: [DeactivatorService]},
+  {path: 'posts/:id', component: PostDetailsComponent, canActivate: [DeactivatorService]},//this component have parent component app
+  {path: 'comments', component: CommentsComponent, resolve: {data: ResolveService}} //при переході на урлу, можем запустити якийсь механізм (запит данних)
+  //prefetch
 ]
 
 @NgModule({
@@ -37,7 +38,8 @@ let routes: Routes = [
     PostComponent,
     HomeComponent,
     UserDetailsComponent,
-    PostDetailsComponent
+    PostDetailsComponent,
+    CommentsComponent
   ],
   imports: [
     BrowserModule,
