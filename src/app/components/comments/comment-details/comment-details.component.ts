@@ -11,17 +11,17 @@ import {ResolveService} from "../../../services/resolve.service";
 export class CommentDetailsComponent implements OnInit {
   @Input()
 comment: Comment
-  constructor(private activatedRoute: ActivatedRoute, private commentService: ResolveService) {
-    this.activatedRoute.params.subscribe(params => {
-      this.commentService.getComment(params.id).subscribe(value => {
-        this.comment = value
-      })
-    })
+  constructor(private activateRoute: ActivatedRoute, private commentService: ResolveService) {
+
 
   }
 
   ngOnInit(): void {
-
+    this.activateRoute.params.subscribe(params=>{
+      this.commentService.getComment(params.id).subscribe(value => {
+        this.comment = value
+      })
+    })
   }
 
 }
