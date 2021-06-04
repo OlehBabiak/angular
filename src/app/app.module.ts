@@ -29,7 +29,7 @@ let routes: Routes = [
   {path: 'posts/:id', component: PostDetailsComponent, canActivate: [DeactivatorService]},//this component have parent component app
   {path: 'comments', component: CommentsComponent, resolve: {data: ResolveService}}, //при переході на урлу, можем запустити якийсь механізм (запит данних)
   //prefetch
-  {path: 'comments/:id', component: CommentComponent}
+  {path: 'comments/:id', component: CommentDetailsComponent}
 ]
 
 @NgModule({
