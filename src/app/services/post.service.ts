@@ -12,7 +12,7 @@ export class PostService {
   getPosts(): Observable<Post[]>{  // Observable наглядає за масивом який приходить
     return   this.httpClient.get<Post[]>(this.url)
   }
-  getPost(id: string): Observable<Post>{  // Observable наглядає за масивом який приходить
-    return   this.httpClient.get<Post>(this.url + '/' + id)
+  getPost(id: string): Observable<Post[]>{  // Observable наглядає за масивом який приходить
+    return   this.httpClient.get<Post[]>(`${this.url}?userId=${id}`)
   }
 }

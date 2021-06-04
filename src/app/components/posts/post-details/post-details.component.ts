@@ -18,7 +18,7 @@ post: Post
   ngOnInit(): void {
     this.activateRoute.params.subscribe(params=>{
       this.postService.getPost(params.id).subscribe(value => {
-        this.post = value
+
       })
     })
   }
