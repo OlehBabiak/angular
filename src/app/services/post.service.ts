@@ -9,9 +9,6 @@ import {Observable} from "rxjs";
 export class PostService {
   private url = 'https://jsonplaceholder.typicode.com/posts';
   constructor(private httpClient: HttpClient) { }
-  getPosts(): Observable<Post[]>{  // Observable наглядає за масивом який приходить
-    return   this.httpClient.get<Post[]>(this.url)
-  }
   getPost(id: string): Observable<Post[]>{  // Observable наглядає за масивом який приходить
     return   this.httpClient.get<Post[]>(`${this.url}?userId=${id}`)
   }

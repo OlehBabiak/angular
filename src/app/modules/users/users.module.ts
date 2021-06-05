@@ -6,18 +6,21 @@ import {HttpClientModule} from "@angular/common/http";
 import {UserService} from "../../services/user.service";
 import {UsersComponent} from "../../components/users/users.component";
 import {UserComponent} from "../../components/users/user/user.component";
+import {PostsComponent} from "../../components/posts/posts.component";
+import {PostComponent} from "../../components/posts/post/post.component";
+import {PostService} from "../../services/post.service";
 
 
 @NgModule({
   declarations: [
     UsersComponent,
-    UserComponent
+    UserComponent,
   ],
   imports: [
     CommonModule,
     UsersRoutingModule,
     HttpClientModule
   ],
-  providers: [UserService],
+  providers: [UserService, PostService],
 })
 export class UsersModule { }

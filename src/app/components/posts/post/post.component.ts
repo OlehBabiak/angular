@@ -15,5 +15,7 @@ post: Post
 
   ngOnInit(): void {
   }
-
+  onBackToUsers(): void{
+    this.router.navigate(['/users'])
+  }
 }
