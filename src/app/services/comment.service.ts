@@ -11,7 +11,7 @@ export class CommentService {
 private url = 'https://jsonplaceholder.typicode.com/comments'
   constructor(private httpClient: HttpClient) {}
     getComment(id: string): Observable<Comment[]>{  // Observable наглядає за масивом який приходить
-      return   this.httpClient.get<Comment[]>(this.url)
+      return   this.httpClient.get<Comment[]>(`${this.url}?postId=${id}`)
     }
   }
 

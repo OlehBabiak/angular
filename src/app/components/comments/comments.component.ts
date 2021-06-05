@@ -14,7 +14,9 @@ comments: Comment[] = []
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(({id}) => {
+      console.log('Act rout: ', this.activatedRoute)
       this.commentService.getComment(id).subscribe(value => {
+        console.log(value);
         this.comments = value
       })
     })

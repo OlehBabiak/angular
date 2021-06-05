@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Post} from "../../../models/Post";
 import {ActivatedRoute, Router} from "@angular/router";
-import {PostService} from "../../../services/post.service";
 import {CommentService} from "../../../services/comment.service";
 
 @Component({
@@ -17,8 +16,5 @@ post: Post
   ngOnInit(): void { }
   getComments():void {
     this.router.navigate([this.post.id], {relativeTo:this.activatedRoute})
-  }
-  onBackToPosts(): void{
-    this.router.navigate(['/posts'])
   }
 }

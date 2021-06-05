@@ -4,8 +4,7 @@ import { AppComponent } from './app.component';
 import {HttpClientModule} from "@angular/common/http";
 import {RouterModule, Routes} from "@angular/router";
 import { HomeComponent } from './components/home/home.component';
-import { Posts2Component } from './components/posts2/posts2.component';
-import { Post2Component } from './components/posts2/post2/post2.component';
+
 
 
 let routes: Routes = [
@@ -18,8 +17,6 @@ let routes: Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
-    Posts2Component,
-    Post2Component
   ],
   imports: [
     BrowserModule,

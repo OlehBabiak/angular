@@ -13,7 +13,7 @@ import {Post} from "../../../models/Post";
 export class UserComponent implements OnInit {
   @Input()
   user: User // let user = u  from users.comp.html
-  post: Post
+
   constructor(private postService: PostService, private router: Router, private activatedRoute: ActivatedRoute ) {
 
   }
@@ -26,7 +26,4 @@ export class UserComponent implements OnInit {
     this.router.navigate([this.user.id], {relativeTo:this.activatedRoute})
     console.log('router: ',this.router)
   }
-  onBackToUsers(): void{
-    this.router.navigate(['/users'])
-}
 }
