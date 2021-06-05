@@ -12,7 +12,9 @@ export class UserDetailsComponent implements OnInit {
   user: User
 
   constructor(private  router: Router, private activateRoute: ActivatedRoute) {
-    this.activateRoute.params.subscribe(params =>{   //here check changes
+    this.activateRoute.params.subscribe(params =>{   //here check changes, тут відбувається ререндеринг
+      //params містить id (path :id)
+      //змінюється параметр урли, наново віхоплюєм extras
       this.user =  this.router.getCurrentNavigation()?.extras.state as User// краще цей спосіб
     })
   }

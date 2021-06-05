@@ -8,7 +8,7 @@ import {Comment} from "../../models/comment";
   styleUrls: ['./comments.component.css']
 })
 export class CommentsComponent implements OnInit {
-  @Input()
+
 comments: Comment[] = []
   constructor(private activatedRoute: ActivatedRoute) {}
 

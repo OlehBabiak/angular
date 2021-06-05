@@ -20,6 +20,10 @@ export class UserComponent implements OnInit {
 
   }
   goToDetails(): void {
-    this.router.navigate([this.user.id], {relativeTo: this.activatedRoute, state: this.user}) //extras додає початковий сегмент урли на якій ми до цього були
+    this.router.navigate([this.user.id], {relativeTo: this.activatedRoute, state: this.user})
+
+    //router приймає масив з урл сегментами
+    // state: this.user перекидує дані в UserDetailsComponent
+    //extras додає початковий сегмент урли на якій ми до цього були
   }
 }
