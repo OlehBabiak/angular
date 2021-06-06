@@ -16,6 +16,6 @@ comment: Comment
   ngOnInit(): void {
   }
   onBackToPosts(){
-  this.router.navigate(['/posts'])
+  this.router.navigate([this.activatedRoute])
   }
 }

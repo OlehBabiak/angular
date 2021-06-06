@@ -18,4 +18,7 @@ post: Post
   onBackToUsers(): void{
     this.router.navigate(['/users'])
   }
+  goToComments(): void{
+      this.router.navigate(['post/', this.post.id], {relativeTo:this.activatedRoute})
+        }
 }

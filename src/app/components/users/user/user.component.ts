@@ -22,8 +22,14 @@ export class UserComponent implements OnInit {
 
   }
 
-  getPosts():void {
-    this.router.navigate([this.user.id], {relativeTo:this.activatedRoute})
-    console.log('router: ',this.router)
+  getUsersPosts():void {
+    this.router.navigate([`${this.user.id}/posts`], {relativeTo: this.activatedRoute})
   }
+  getUsersAlbums():void {
+    this.router.navigate([`${this.user.id}/albums`], {relativeTo: this.activatedRoute})
+  }
+  getUsersTodos():void {
+    this.router.navigate([`${this.user.id}/todos`], {relativeTo: this.activatedRoute})
+  }
+
 }

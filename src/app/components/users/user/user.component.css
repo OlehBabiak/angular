@@ -2,10 +2,11 @@ h3{
   text-align: center;
 }
 
-.user {
-  margin: 60px auto;
-  font-size: large;
-  font-weight: bold;
+.user{
+  display: flex;
+  justify-content: space-around;
 }
 
-
+.button{
+  margin-top: 18px;
+}
