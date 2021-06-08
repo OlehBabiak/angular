@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Post} from "../../../models/Post";
+import {PostInterface} from "../../../interfaces/post.interface";
 import {PostService} from "../../../services/post.service";
 import {ActivatedRoute, Router} from "@angular/router";
 
@@ -10,7 +10,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class PostComponent implements OnInit {
 @Input()
-post: Post
+post: PostInterface
   constructor(private postService: PostService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {

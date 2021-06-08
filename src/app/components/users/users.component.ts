@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {User} from "../../models/User";
-import {UserService} from "../../services/user.service";
+import {UserInterface} from "../../interfaces/user.interface";
+import {UserResolveService} from "../../services/user-resolve.service";
+import {ActivatedRoute} from "@angular/router";
 
 
 @Component({
@@ -9,14 +10,15 @@ import {UserService} from "../../services/user.service";
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit { //like lifcycle hook
-  users: User[] = []
+  users: UserInterface[]
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserResolveService, private activatedRoute: ActivatedRoute) {
+    this.activatedRoute.data.subscribe(({data}) => {
+      this.users = data
+    })
   }
 
   ngOnInit(): void {
-    this.userService.getUsers().subscribe(value => {
-      this.users = value
-    })
+    }
   }
-}
+

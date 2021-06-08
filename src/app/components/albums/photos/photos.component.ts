@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {PhotoInterface} from "../../../interfaces/photo.interface";
+import {ActivatedRoute} from "@angular/router";
+import {PhotoService} from "../../../services/photo.service";
 
 @Component({
   selector: 'app-photos',
@@ -6,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./photos.component.css']
 })
 export class PhotosComponent implements OnInit {
-
-  constructor() { }
+photos: PhotoInterface[] = []
+  constructor(private activatedRoute: ActivatedRoute, private photoService: PhotoService) { }
 
   ngOnInit(): void {
+  this.activatedRoute.params.subscribe(({id})=>{
+    this.photoService.getPhoto(id).subscribe(value => {
+      this.photos = value
+    })
+  })
   }
 
 }

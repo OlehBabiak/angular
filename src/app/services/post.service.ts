@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Post} from "../models/Post";
+import {PostInterface} from "../interfaces/post.interface";
 import {Observable} from "rxjs";
 
 @Injectable({
@@ -9,8 +9,8 @@ import {Observable} from "rxjs";
 export class PostService {
   private url = 'https://jsonplaceholder.typicode.com/posts';
   constructor(private httpClient: HttpClient) { }
-  getPost(id: string): Observable<Post[]>{  // Observable наглядає за масивом який приходить
-    return   this.httpClient.get<Post[]>(`${this.url}?userId=${id}`)
+  getPost(id: string): Observable<PostInterface[]>{  // Observable наглядає за масивом який приходить
+    return   this.httpClient.get<PostInterface[]>(`${this.url}?userId=${id}`)
   }
 }
 ////

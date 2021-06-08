@@ -1,1 +1,6 @@
-<p>photos works!</p>
+<div>
+  <div><app-photo *ngFor="let photo of photos" [photo] = photo></app-photo></div>
+  <div style="
+  width: 600px;
+"><router-outlet></router-outlet></div>
+</div>

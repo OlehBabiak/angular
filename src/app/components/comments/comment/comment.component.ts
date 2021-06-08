@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Comment} from "../../../models/comment";
+import {CommentInterface} from "../../../interfaces/comment.interface";
 import {PostService} from "../../../services/post.service";
 import {ActivatedRoute, Router} from "@angular/router";
 
@@ -10,12 +10,12 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class CommentComponent implements OnInit {
 @Input()
-comment: Comment
+comment: CommentInterface
   constructor(private postService: PostService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
   }
-  onBackToPosts(){
+  onBackToUsers(){
   this.router.navigate([this.activatedRoute])
   }
 }

@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {Comment} from "../../models/comment";
+import {CommentInterface} from "../../interfaces/comment.interface";
 import {CommentService} from "../../services/comment.service";
 
 @Component({
@@ -9,7 +9,7 @@ import {CommentService} from "../../services/comment.service";
   styleUrls: ['./comments.component.css']
 })
 export class CommentsComponent implements OnInit {
-comments: Comment[] = []
+comments: CommentInterface[] = []
   constructor(private activatedRoute: ActivatedRoute, private commentService: CommentService) {}
 
   ngOnInit(): void {

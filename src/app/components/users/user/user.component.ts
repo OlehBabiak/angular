@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {User} from "../../../models/User";
+import {UserInterface} from "../../../interfaces/user.interface";
 import {PostService} from "../../../services/post.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {Post} from "../../../models/Post";
+import {PostInterface} from "../../../interfaces/post.interface";
 
 
 @Component({
@@ -12,7 +12,7 @@ import {Post} from "../../../models/Post";
 })
 export class UserComponent implements OnInit {
   @Input()
-  user: User // let user = u  from users.comp.html
+  user: UserInterface // let user = u  from users.comp.html
 
   constructor(private postService: PostService, private router: Router, private activatedRoute: ActivatedRoute ) {
 

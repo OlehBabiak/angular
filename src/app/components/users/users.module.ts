@@ -10,22 +10,25 @@ import {PostComponent} from "../posts/post/post.component";
 import {CommentService} from "../../services/comment.service";
 import {CommentsComponent} from "../comments/comments.component";
 import {CommentComponent} from "../comments/comment/comment.component";
+import {PostService} from "../../services/post.service";
+import {AlbumService} from "../../services/album.service";
+import {PhotoService} from "../../services/photo.service";
 
 
 @NgModule({
   declarations: [
     UsersComponent,
-    UserComponent,
-    PostsComponent,
-    PostComponent,
-    CommentsComponent,
-    CommentComponent
+    UserComponent
   ],
   imports: [
     CommonModule,
     UsersRoutingModule,
     HttpClientModule,
   ],
-  providers: [CommentService],
+  providers: [
+    CommentService,
+    AlbumService,
+    PhotoService
+  ],
 })
 export class UsersModule { }

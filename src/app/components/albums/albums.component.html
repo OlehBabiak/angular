@@ -1,1 +1,7 @@
-<p>albums works!</p>
+<div class="albums">
+  <div><app-album *ngFor='let a of albums' [album]="a"></app-album></div>
+  <div style="
+  width: 600px;
+"><router-outlet></router-outlet></div>
+
+</div>

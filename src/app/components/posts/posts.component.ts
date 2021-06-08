@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Post} from "../../models/Post";
+import {PostInterface} from "../../interfaces/post.interface";
 import {PostService} from "../../services/post.service";
 import {ActivatedRoute} from "@angular/router";
 
@@ -9,8 +9,7 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent implements OnInit {
-  @Input()
-posts: Post[] = []
+posts: PostInterface[] = []
 
   constructor(private postService: PostService, private activatedRoute:ActivatedRoute) { }
 
