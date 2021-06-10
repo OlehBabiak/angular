@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {IUser} from "../../../interfaces";
-import {DataTransferService} from "../../../app-services/data-transfer.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 
 @Component({
@@ -11,13 +11,11 @@ import {DataTransferService} from "../../../app-services/data-transfer.service";
 export class UserComponent implements OnInit {
 @Input()
 user: IUser
-  constructor(private datatransfer: DataTransferService) { }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute ) { }
 
   ngOnInit(): void {
   }
-  storeUser(){
-let currentStore = this.datatransfer.store.getValue()
-    currentStore.push(this.user.name)
-    this.datatransfer.store.next(currentStore)
+  goToDetails(): void {
+    this.router.navigate([this.user.id], {relativeTo: this.activatedRoute, state: this.user})
   }
 }

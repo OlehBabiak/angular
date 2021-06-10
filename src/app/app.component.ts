@@ -10,8 +10,7 @@ export class AppComponent {
   greeting = 'Hello angular';
 msg: any
   constructor(private dataTansfer: DataTransferService) {
-    this.msg = this.dataTansfer.store.getValue()
-    this.dataTansfer.store.next('jhjfjhjfgh')
+
     this.msg = this.dataTansfer.store.getValue()
   }
 

@@ -1,7 +1,8 @@
 import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {UserService} from "../../../services/user.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {IUser} from "../../../interfaces";
+import {DataTransferService} from "../../../app-services/data-transfer.service";
 
 @Component({
   selector: 'app-user-detail',
@@ -10,20 +11,22 @@ import {IUser} from "../../../interfaces";
 })
 export class UserDetailComponent implements OnInit {
 user: IUser
+  userDetails: any
 @Output()
   userLift = new EventEmitter<any>()
 
-  constructor(private userService: UserService, private activatedRoute: ActivatedRoute ) { }
+  constructor(private  router: Router, private userService: UserService, private activatedRoute: ActivatedRoute, private dataTansfer: DataTransferService ) {
+
+  }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(params => {
-      this.userService.getUser(params.id).subscribe(value => {
-        this.user = value
-      })
-    })
+
+  }
+  choseUser() {
+    this.userDetails = this.dataTansfer.store.getValue()
+    this.dataTansfer.store.next(this.user.name)
+    console.log(this.dataTansfer.store.getValue());
+    console.log('zzz: ', this.userDetails)
   }
 
-  choseUser() {
-this.userLift.emit(this.user.name)
-  }
 }

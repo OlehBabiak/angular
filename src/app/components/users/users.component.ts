@@ -11,9 +11,11 @@ import {DataTransferService} from "../../app-services/data-transfer.service";
 export class UsersComponent implements OnInit {
 users: IUser[] = []
 
-  constructor(private userService: UserService) {
 
-  }
+    constructor(private userService: UserService) {
+
+    }
+
 
   ngOnInit(): void {
     this.userService.getUsers().subscribe(value => {

@@ -5,19 +5,24 @@ import { UserComponent } from './components/users/user/user.component';
 import {HttpClientModule} from "@angular/common/http";
 import {RouterModule, Routes} from "@angular/router";
 import { HomeComponent } from './components/home/home.component';
-import { PostDetailComponent } from './components/posts/post-details/post-detail.component';
 import { UserDetailComponent } from './components/users/user-details/user-detail.component';
+import {UsersComponent} from "./components/users/users.component";
+import {UserService} from "./services/user.service";
 
 let routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'users', loadChildren: () => import('./components/users/user-module/user.module').then(m => m.UserModule)},
-  {path: 'posts', loadChildren: () => import('./components/posts/post-module/post.module').then(m => m.PostModule)}
+  {path: 'users', component: UsersComponent, children: [
+      {path: ':id', component: UserDetailComponent}
+    ]},
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    UsersComponent,
+    UserComponent,
+    UserDetailComponent
   ],
   imports: [
     BrowserModule,

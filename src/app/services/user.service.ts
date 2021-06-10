@@ -12,7 +12,4 @@ export class UserService {
   getUsers(): Observable<IUser[]>{
     return this.httpClient.get<IUser[]>(urls.users)
   }
-  getUser(id: string): Observable<IUser>{
-    return this.httpClient.get<IUser>(`${urls.users}/${id}`)
-  }
 }

@@ -4,5 +4,5 @@ const {API} = environment;
 
 export const urls = {
   users: `${API}/users`,
-  posts: `${API}/posts`,
+  home:  `${API}`
 }
