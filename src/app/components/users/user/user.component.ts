@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, Output,EventEmitter} from '@angular/core';
 import {IUser} from "../../../interfaces";
 import {ActivatedRoute, Router} from "@angular/router";
 
@@ -11,11 +11,15 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class UserComponent implements OnInit {
 @Input()
 user: IUser
-  constructor(private router: Router, private activatedRoute: ActivatedRoute ) { }
+  @Output()
+  emitter = new EventEmitter<IUser>()
+  constructor(private router: Router, private activatedRoute: ActivatedRoute ) {
+
+  }
 
   ngOnInit(): void {
   }
   goToDetails(): void {
-    this.router.navigate([this.user.id], {relativeTo: this.activatedRoute, state: this.user})
+  this.emitter.emit(this.user)
   }
 }

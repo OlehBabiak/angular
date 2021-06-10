@@ -1,2 +1,4 @@
-<h3>User name: {{user.username}}</h3>
-<button>Login</button>
+<div *ngIf="user">
+  <h3>User name: {{user|json}}</h3>
+  <button (click)="setUser()">Login</button>
+</div>

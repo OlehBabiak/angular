@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {UserService} from "../../../services/user.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {IUser} from "../../../interfaces";
+import {DataTransferService} from "../../../services/data-transfer.service";
 
 
 @Component({
@@ -10,18 +11,21 @@ import {IUser} from "../../../interfaces";
   styleUrls: ['./user-detail.component.css']
 })
 export class UserDetailComponent implements OnInit {
-user: IUser
+@Input()
+  user: IUser
 
 
 
-  constructor(private router: Router, private userService: UserService, private activatedRoute: ActivatedRoute) {
-    console.log(activatedRoute.params);
-    this.activatedRoute.params.subscribe(params =>{
-      this.user =  this.router.getCurrentNavigation()?.extras.state as IUser
-    })
+  constructor(private dataTransfer: DataTransferService) {
   }
 
   ngOnInit(): void {
 
+  }
+
+  setUser() {
+    let currentUser = this.dataTransfer.store.getValue()
+    currentUser = this.user.name
+    this.dataTransfer.store.next(currentUser)
   }
 }

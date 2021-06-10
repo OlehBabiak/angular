@@ -6,6 +6,6 @@ import {BehaviorSubject} from "rxjs";
 })
 export class DataTransferService {
 
-  store: BehaviorSubject<any> = new BehaviorSubject<any>('anonymous')
+  store = new BehaviorSubject<string>('anonymous')
   constructor() { }
 }

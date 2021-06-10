@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Output,EventEmitter} from '@angular/core';
 import {UserService} from "../../services/user.service";
 import {IUser} from "../../interfaces";
-import {DataTransferService} from "../../app-services/data-transfer.service";
 
 @Component({
   selector: 'app-users',
@@ -9,9 +8,9 @@ import {DataTransferService} from "../../app-services/data-transfer.service";
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-users: IUser[] = []
-
-
+users: IUser[];
+@Output()
+emitter = new EventEmitter<IUser>()
     constructor(private userService: UserService) {
     }
 
@@ -20,5 +19,9 @@ users: IUser[] = []
     this.userService.getUsers().subscribe(value => {
       this.users = value
     })
+  }
+
+  getUser(user: IUser) {
+    this.emitter.emit(user)
   }
 }

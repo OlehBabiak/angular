@@ -10,9 +10,9 @@ import {UsersComponent} from "./components/users/users.component";
 import {UserService} from "./services/user.service";
 
 let routes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'users', component: UsersComponent},
-  {path: ':id', component: UserDetailComponent}
+  // {path: '', component: HomeComponent},
+  // {path: 'users', component: UsersComponent},
+  // {path: ':id', component: UserDetailComponent}
 ]
 
 @NgModule({
