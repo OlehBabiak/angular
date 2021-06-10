@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {DataTransferService} from "./app-services/data-transfer.service";
+
 
 @Component({
   selector: 'app-root',
@@ -8,10 +8,4 @@ import {DataTransferService} from "./app-services/data-transfer.service";
 })
 export class AppComponent {
   greeting = 'Hello angular';
-msg: any
-  constructor(private dataTansfer: DataTransferService) {
-
-    this.msg = this.dataTansfer.store.getValue()
-  }
-
 }
