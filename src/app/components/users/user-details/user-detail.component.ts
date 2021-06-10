@@ -16,7 +16,9 @@ user: IUser
   userLift = new EventEmitter<any>()
 
   constructor(private  router: Router, private userService: UserService, private activatedRoute: ActivatedRoute, private dataTansfer: DataTransferService ) {
-
+    this.activatedRoute.params.subscribe(params =>{
+      this.user =  this.router.getCurrentNavigation()?.extras.state as IUser
+    })
   }
 
   ngOnInit(): void {
