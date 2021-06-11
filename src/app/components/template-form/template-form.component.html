@@ -1,7 +1,45 @@
-<form #myForm (ngSubmit)="submit(myForm)">
-  <input type="text" name="id" [(ngModel)]="car.id">
-  <input type="text" name="model" [(ngModel)]="car.model">
-  <input type="text" name="price" [(ngModel)]="car.price">
-  <input type="text" name="year" [(ngModel)]="car.year">
+<!--<form #myForm = 'ngForm' (ngSubmit)="submit(myForm)"> &lt;!&ndash;#myForm - посилання на поточну форму &ndash;&gt;-->
+<!--  <input required type="text" name="model" [(ngModel)]="car.model">-->
+<!--  <br>-->
+<!--  <input required type="text" name="price" [(ngModel)]="car.price">-->
+<!--  <br>-->
+<!--  <input required type="text" name="year" [(ngModel)]="car.year">-->
+<!--  <br>-->
+<!--  <button [disabled]="!myForm.valid">Save</button>-->
+<!--</form>-->
+
+<form #myForm = 'ngForm' (ngSubmit)="submit(myForm)"> <!--#myForm - посилання на поточну форму -->
+  <div>
+    <input #lgn = 'ngModel' required minlength="3" type="text" name="model" [(ngModel)]="car.model">
+    <div *ngIf="lgn.errors?.required">required field</div>
+    <div *ngIf="lgn.errors?.minlength?.actualLength < lgn.errors?.minlength?.requiredLength">
+      Actual length is: {{lgn.errors?.minlength?.actualLength}}
+      Required length is: {{lgn.errors?.minlength?.requiredLength}}
+    </div>
+  </div>
+
+  <div>
+    <input required minlength="3" type="text" name="price" [(ngModel)]="car.price">
+  </div>
+
+  <div>
+    <input required minlength="3" type="text" name="year" [(ngModel)]="car.year">
+  </div>
+
   <button>Save</button>
 </form>
+
+<!--controls:-->
+<!--model: FormControl-->
+<!--errors:-->
+<!--required: true-->
+
+
+<!--controls:
+model: FormControl
+errors:
+minlength:
+actualLength: 1
+requiredLength: 3-->
+
+

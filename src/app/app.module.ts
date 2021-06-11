@@ -9,7 +9,7 @@ import { TemplateFormComponent } from './components/template-form/template-form.
 import {FormsModule} from "@angular/forms";
 
 let routes: Routes = [
-  {path: '', component: TemplateFormComponent},
+  {path: 'inputs', component: TemplateFormComponent},
   {path: 'cars', component: CarsComponent}
   ]
 @NgModule({

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {ICar} from "../../interfaces/car";
+import {NgForm} from "@angular/forms";
+
+
 
 @Component({
   selector: 'app-template-form',
@@ -7,13 +9,16 @@ import {ICar} from "../../interfaces/car";
   styleUrls: ['./template-form.component.css']
 })
 export class TemplateFormComponent implements OnInit {
-car: ICar
+car = {
+  model: 'ZAZ',
+  price: 100,
+  year: 1981}
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  submit(myForm: HTMLFormElement) {
-    
+  submit(myForm: NgForm) {
+    console.log(myForm);
   }
 }
