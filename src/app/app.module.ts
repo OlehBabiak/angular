@@ -6,10 +6,12 @@ import {HttpClientModule} from "@angular/common/http";
 import { CarComponent } from './components/cars/car/car.component';
 import {RouterModule, Routes} from "@angular/router";
 import { TemplateFormComponent } from './components/template-form/template-form.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { ReactiveFormComponent } from './components/reactive-form/reactive-form.component';
 
 let routes: Routes = [
   {path: 'inputs', component: TemplateFormComponent},
+  {path: 'inputs/r', component: ReactiveFormComponent},
   {path: 'cars', component: CarsComponent}
   ]
 @NgModule({
@@ -17,13 +19,15 @@ let routes: Routes = [
     AppComponent,
     CarsComponent,
     CarComponent,
-    TemplateFormComponent
+    TemplateFormComponent,
+    ReactiveFormComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

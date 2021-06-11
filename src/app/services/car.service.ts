@@ -12,4 +12,9 @@ private url = 'http://92.253.239.109/api/v1/cars'
     getCars(): Observable<ICar[]>{
       return this.httpClient.get<ICar[]>(this.url)
     }
+
+  postCars(): Observable<ICar>{
+    return this.httpClient.get<ICar>(this.url, )
+  }
+
 }

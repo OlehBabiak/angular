@@ -1,0 +1,22 @@
+<!--<form [formGroup]="myForm">-->
+<!--    <input type = 'text' formControlName="model">-->
+<!--    <br>-->
+<!--    <input type = 'text' formControlName="price">-->
+<!--    <br>-->
+<!--    <input type = 'text' formControlName="year">-->
+<!--</form>-->
+
+<form [formGroup]="myForm" (ngSubmit)="save()">
+  <input type = 'text' [formControl]="modelControl" placeholder="Enter model">
+  <div *ngIf="modelControl.errors?.badWord">Хренове слово</div>
+  <br>
+  <input type = 'text' [formControl]="priceControl" placeholder="Enter price">
+  <br>
+  <input type = 'text' [formControl]="yearControl" placeholder="Enter year">
+  <br>
+  <select [formControl]="select">
+    <option *ngFor="let car of cars" [value]="car.model">{{car.model}}</option>
+
+  </select>
+  <button [disabled]="myForm.invalid">Save</button>
+</form>
