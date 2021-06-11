@@ -1,0 +1,7 @@
+<form #myForm (ngSubmit)="submit(myForm)">
+  <input type="text" name="id" [(ngModel)]="car.id">
+  <input type="text" name="model" [(ngModel)]="car.model">
+  <input type="text" name="price" [(ngModel)]="car.price">
+  <input type="text" name="year" [(ngModel)]="car.year">
+  <button>Save</button>
+</form>
