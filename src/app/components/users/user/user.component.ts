@@ -1,7 +1,5 @@
 import {Component, Input, OnInit, Output,EventEmitter} from '@angular/core';
 import {IUser} from "../../../interfaces";
-import {ActivatedRoute, Router} from "@angular/router";
-
 
 @Component({
   selector: 'app-user',
@@ -13,7 +11,7 @@ export class UserComponent implements OnInit {
 user: IUser
   @Output()
   emitter = new EventEmitter<IUser>()
-  constructor(private router: Router, private activatedRoute: ActivatedRoute ) {
+  constructor() {
 
   }
 
